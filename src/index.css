@@ -1,36 +1,30 @@
-.App {
+* {
   font-family: sans-serif;
-  /* text-align: center;
-  background-color: blue; */
 }
-.movie-poster {
-  height: 300px;
-  width: 300px;
+.flexParent {
+  display: flex;
+  flex-wrap:  wrap;
+    justify-content: center;
 }
-.movie-year {
-  margin-top: 5px;
-  /* border-bottom: 2px solid black; */
+.flexParent > div {
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 5px;
 }
-.movie-summary {
-  
-  width: 300px;
+.flexParent > div > button {
+  margin-top: 50px;
 }
-.new-movie{
+.flexParent > div > p {
   margin-top: 10px;
-  border: 2px solid blue;
-  background-color: white;
-  border-radius: 20px;
 }
-.movie-list{
-  display:flex;
-  gap:10px;
-  flex-wrap: wrap;
-  justify-content: space-around;
+input {
+  width: 50px;
+  text-align: center;
 }
-.counter{
-  display:flex;
-  flex-wrap: wrap;
-justify-content: space-between;
-  font-size: 15px;
-margin: 10px;
+div {
+  text-align: center;
 }
+
+
