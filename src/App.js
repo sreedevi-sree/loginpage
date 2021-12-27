@@ -1,92 +1,151 @@
-import {useState} from "react";
 import "./index.css";
 export default function App() {
-  const [movie,setMovie] = useState([
+  const pricingtable = [
     {
-      name: "Thuppaki",
-      poster:
-        "https://m.media-amazon.com/images/M/MV5BZTc4YWY5MzAtOTc4Zi00NDVmLThlMGItYjliOGNkYmM3NDBmXkEyXkFqcGdeQXVyOTk3NTc2MzE@._V1_.jpg",
-      rating: "⭐⭐⭐⭐⭐ 8.1/10",
-      year: "2012",
-      summary:
-"An army captain visits Mumbai to be with his family and find a suitable bride. However, an explosion in the city sets him off on a mission to find and disable a terrorist sleeper cell in the city."
+      name: "FREE",
+      amount: "$0/month",
+      users: "Single Users",
+      data: "5GB Storage",
+      publicproject: "Unlimited Public Projects",
+      access: "Community Access",
+      privateproject: "Unlimited Private Projects",
+      phone: "Dedicated Phone Support",
+      subdomain: " Free Subdomains",
+      report: "Monthly Status Reports",
+      submit: "Button"
     },
     {
-      name: "Spiderman",
-      poster:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQlKOtc-RTtE2ns8fMI990-RHrqGwncy_D0w&usqp=CAU",
-      rating: "⭐⭐⭐⭐⭐ 7.13/10",
-      year: "2002",
-      summary:
-"Peter Parker's life changes when he is bitten by a genetically altered spider and gains superpowers. He uses his powers to help people and finds himself facing the Green Goblin, an evil maniac"
+      name: "PLUS",
+      amount: "$9/month",
+      users: "5 Users",
+      data: "50GB Storage",
+      publicproject: "Unlimited Public Projects",
+      access: "Community Access",
+      privateproject: "Unlimited Private Projects",
+      phone: "Dedicated Phone Support",
+      subdomain: " Free Subdomains",
+      report: "Monthly Status Reports",
+      submit: "Button"
     },
     {
-      name: "Red notice",
-      poster:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlwYfCCXZcMjUGSM88PBwYhTvWEc_kjUu_Gw&usqp=CAU",
-      rating: " ⭐⭐⭐⭐⭐6.4/10",
-      year: "2021",
-      summary:
-"In the world of international crime, an Interpol agent attempts to hunt down and capture the world's most wanted art thief."
-    },
-    {
-      name: "Hera pheri",
-      poster:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAeH5wJvCZbY6_lOec9vAmUNAQkBauGNViwA&usqp=CAU",
-      rating: "⭐⭐⭐⭐⭐ 8.2/10",
-      year: "2000",
-      summary:
-"Two tenants and a landlord, in desperate need of money, chance upon a ransom call via a cross connection. They hatch a plan to claim the ransom for themselves"
-    },
-    {
-      name: "M S Dhoni",
-      poster:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ334LoTpdtqtYk17XPQjRcBim8qRyKiR1d6Q&usqp=CAU",
-      rating: "⭐⭐⭐⭐⭐ 8/10",
-      year: "2016",
-      summary:
-"M S Dhoni, a boy from Ranchi, aspires to play cricket for India. Though he initially tries to please his father by working for the Indian Railways, he ultimately decides to chase his dreams"
+      name: "PRO",
+      amount: "$49/month",
+      users: "Unlimited Users",
+      data: "150GB Storage",
+      publicproject: "Unlimited Public Projects",
+      access: "Community Access",
+      privateproject: "Unlimited Private Projects",
+      phone: "Dedicated Phone Support",
+      subdomain: "Unlimited Free Subdomains",
+      report: "Monthly Status Reports",
+      submit: "Button"
     }
-  ]);
+  ];
   return (
     <div className="App">
-      <section className="movie-list">
-      {movie.map((movie) => (
+      {pricingtable.map((pricingtable) => (
         <Welcome
-          name={movie.name}
-          poster={movie.poster}
-          rating={movie.rating}
-          year={movie.year}
-          summary={movie.summary}
+          name={pricingtable.name}
+          amount={pricingtable.amount}
+          users={pricingtable.users}
+          data={pricingtable.data}
+          publicproject={pricingtable.publicproject}
+          access={pricingtable.access}
+          privateproject={pricingtable.privateproject}
+          phone={pricingtable.phone}
+          subdomain={pricingtable.subdomain}
+          report={pricingtable.report}
+          submit={pricingtable.submit}
         />
       ))}
-      </section>
-      
     </div>
   );
 }
-function Welcome({ name, poster, rating, year,summary }) {
+function Welcome({
+  name,
+  amount,
+  users,
+  data,
+  publicproject,
+  access,
+  privateproject,
+  phone,
+  subdomain,
+  report,
+  submit
+}) {
   return (
-    <div className="new-movie">
-      <h1 className="movie-name">{name}</h1>
-      <img className="movie-poster" src={poster} alt={name} />{" "}
-      <p className="movie-rating">Rating: {rating}</p>
-      <p className="movie-year">Year: {year}</p>
-      <p className="movie-summary">Summary:{summary}</p>
-      <Counter />
+    <section className="pricing py-5">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4">
+            <div className="card mb-5 mb-lg-0">
+              <div className="card-body">
+                <h1 className="card-title text-muted text-uppercase text-center">
+                  {name}
+                </h1>
+                <h2 className="card-price text-center">
+                  <span className="period">{amount}</span>
+                </h2>
+                <ul className="fa-ul">
+                  <li>
+                    <span className="fa-li">
+                      <i className="fas fa-check"></i>
+                    </span>
+                    {users}
+                  </li>
+                  <li>
+                    <span className="fa-li">
+                      <i className="fas fa-check"></i>
+                    </span>
+                    {data}
+                  </li>
+                  <li>
+                    <span className="fa-li">
+                      <i className="fas fa-check"></i>
+                    </span>
+                    {publicproject}
+                  </li>
+                  <li>
+                    <span className="fa-li">
+                      <i className="fas fa-check"></i>
+                    </span>
+                    {access}
+                  </li>
+                  <li className="text-muted">
+                    <span className="fa-li">
+                      <i className="fas fa-times"></i>
+                    </span>
+                    {privateproject}
+                  </li>
+                  <li className="text-muted">
+                    <span className="fa-li">
+                      <i className="fas fa-times"></i>
+                    </span>
+                    {phone}
+                  </li>
+                  <li className="text-muted">
+                    <span className="fa-li">
+                      <i className="fas fa-times"></i>
+                    </span>
+                    {subdomain}
+                  </li>
+                  <li className="text-muted">
+                    <span className="fa-li">
+                      <i className="fas fa-times"></i>
+                    </span>
+                    {report}
+                  </li>
+                </ul>
+                <div className="d-grid">
+                  <button className="btn btn-primary text-uppercase">
+                    {submit}
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-  );
-}
-
-function Counter ()
-{
-  const[like,setLike]=useState(0);
-  const[dislike,setDislike]=useState(0);
-  return (
-    <div className="counter">
-      <button onClick={()=>setLike(like+1)}> Like 👍 {like}</button>
-      <button onClick={()=>setDislike(dislike+1)}> disLike 👎 {dislike}</button>
+        </div>
       </div>
-  ) ;
-}
-
+    </section>
+  );}
