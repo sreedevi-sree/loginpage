@@ -1,181 +1,151 @@
+import {useState} from "react";
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import ToggleButton from '@mui/material/ToggleButton';
+
 import "./index.css";
+// import { style } from "@mui/system";
 export default function App() {
-  const pricingtable = [
+
+  const Initialmovie = [
     {
-      name: "FREE",
-      amount: "$0/month",
-      users: "Single Users",
-      data: "5GB Storage",
-      publicproject: "Unlimited Public Projects",
-      access: "Community Access",
-      privateproject: "Unlimited Private Projects",
-      phone: "Dedicated Phone Support",
-      subdomain: " Free Subdomains",
-      report: "Monthly Status Reports",
-      submit: "Button"
+      name: "Thuppaki",
+      poster:
+        "https://m.media-amazon.com/images/M/MV5BZTc4YWY5MzAtOTc4Zi00NDVmLThlMGItYjliOGNkYmM3NDBmXkEyXkFqcGdeQXVyOTk3NTc2MzE@._V1_.jpg",
+      rating: "9",
+      year: "2012",
+      summary:
+"An army captain visits Mumbai to be with his family and find a suitable bride. However, an explosion in the city sets him off on a mission to find and disable a terrorist sleeper cell in the city."
     },
     {
-      name: "PLUS",
-      amount: "$9/month",
-      users: "5 Users",
-      data: "50GB Storage",
-      publicproject: "Unlimited Public Projects",
-      access: "Community Access",
-      privateproject: "Unlimited Private Projects",
-      phone: "Dedicated Phone Support",
-      subdomain: " Free Subdomains",
-      report: "Monthly Status Reports",
-      submit: "Button"
+      name: "Spiderman",
+      poster:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQlKOtc-RTtE2ns8fMI990-RHrqGwncy_D0w&usqp=CAU",
+      rating: "7.13",
+      year: "2002",
+      summary:
+"Peter Parker's life changes when he is bitten by a genetically altered spider and gains superpowers. He uses his powers to help people and finds himself facing the Green Goblin, an evil maniac"
     },
     {
-      name: "PRO",
-      amount: "$49/month",
-      users: "Unlimited Users",
-      data: "150GB Storage",
-      publicproject: "Unlimited Public Projects",
-      access: "Community Access",
-      privateproject: "Unlimited Private Projects",
-      phone: "Dedicated Phone Support",
-      subdomain: "Unlimited Free Subdomains",
-      report: "Monthly Status Reports",
-      submit: "Button"
+      name: "Red notice",
+      poster:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlwYfCCXZcMjUGSM88PBwYhTvWEc_kjUu_Gw&usqp=CAU",
+      rating: " 6.4",
+      year: "2021",
+      summary:
+"In the world of international crime, an Interpol agent attempts to hunt down and capture the world's most wanted art thief."
+    },
+    {
+      name: "Hera pheri",
+      poster:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAeH5wJvCZbY6_lOec9vAmUNAQkBauGNViwA&usqp=CAU",
+      rating: "8.2",
+      year: "2000",
+      summary:
+"Two tenants and a landlord, in desperate need of money, chance upon a ransom call via a cross connection. They hatch a plan to claim the ransom for themselves"
+    },
+    {
+      name: "M S Dhoni",
+      poster:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ334LoTpdtqtYk17XPQjRcBim8qRyKiR1d6Q&usqp=CAU",
+      rating: "8",
+      year: "2016",
+      summary:
+"M S Dhoni, a boy from Ranchi, aspires to play cricket for India. Though he initially tries to please his father by working for the Indian Railways, he ultimately decides to chase his dreams"
     }
   ];
+  const [name,setName]=useState(" ");
+  const [poster,setPoster]=useState(" ");
+  const [rating,setRating]=useState(" ");
+  const [year,setYear]=useState(" ");
+  const [summary,setSummary]=useState(" ");
+
+const [movieList,setMovieList]=useState(Initialmovie)
   return (
     <div className="App">
-          <section className="pricing py-5">
+      <div className="MovieArray">
+        <h3>Enter Movie details</h3>
+        <TextField
+         value={name}
+         onChange={(event)=>
+           setName(event.target.value)}        
+        id="outlined-basic" label="Name" variant="outlined" />
+        <TextField       
+        value={poster}
+       onChange={(event)=>
+         setPoster(event.target.value)}
+        id="outlined-basic" label="Poster" variant="outlined" />
+        <TextField 
+        value={rating}
+      onChange={(event)=>
+        setRating(event.target.value)}
+        id="outlined-basic" label="Rating" variant="outlined" />
+        <TextField
+        value={year}
+      onChange={(event)=>
+        setYear(event.target.value)}
+         id="outlined-basic" label="Year" variant="outlined" />
+        <TextField
+        value={summary}
+      onChange={(event)=>
+        setSummary(event.target.value)}
+         id="outlined-basic" label="Summary" variant="outlined" />
+      
+</div>
+<Button 
+onClick={()=>{
+  const newMovie ={
+    name:name,
+    poster:poster,
+    rating:rating,
+    year:year,
+    summary:summary,
 
-            <div className="container">
+  };
+  setMovieList([...movieList,newMovie])
+}}
+variant="outlined">Add Movie</Button>
 
-              <div className="row">
-      {pricingtable.map((pricingtable) => (
+      <section className="movie-list">
+      {movieList.map((movie) => (
         <Welcome
-          name={pricingtable.name}
-          amount={pricingtable.amount}
-          users={pricingtable.users}
-          data={pricingtable.data}
-          publicproject={pricingtable.publicproject}
-          access={pricingtable.access}
-          privateproject={pricingtable.privateproject}
-          phone={pricingtable.phone}
-          subdomain={pricingtable.subdomain}
-          report={pricingtable.report}
-          submit={pricingtable.submit}
+          name={movie.name}
+          poster={movie.poster}
+          rating={movie.rating}
+          year={movie.year}
+          summary={movie.summary}
         />
       ))}
+      </section>
     </div>
-    </div>
-    </section>
-</div>
-
   );
 }
-function Welcome({
-  name,
-  amount,
-  users,
-  data,
-  publicproject,
-  access,
-  privateproject,
-  phone,
-  subdomain,
-  report,
-  submit
-}) {
+function Welcome({ name, poster, rating, year,summary }) {
+  const styles={color:rating>="8.5" ? "green": "red"};
+  const [showText, setShowText] = useState(false);
   return (
-    <div className="col-lg-4 height:100%" >
-            <div className="card ">
-              <div className="card-body">
-                <h1 className="card-title text-muted text-uppercase text-center">
-                  {name}
-                </h1>
-                <h2 className="card-price text-center">
-                  <span className="period">{amount}</span>
-                </h2>
-                <ul className="fa-ul">
-                  <li>
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {users}
-                  </li>
-                  <li>
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {data}
-                  </li>
-                  <li>
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {publicproject}
-                  </li>
-                  <li>
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {access}
-                  </li>
-                  {name==="FREE"?
-                  <li className="text-muted">
-                    <span className="fa-li">
-                      <i className="fa fa-close"></i>
-                    </span>
-                    {privateproject}
-                  </li>:<li>
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {privateproject}
-                  </li>}
-                  {name==="FREE"?
-                  <li className="text-muted">
-                    <span className="fa-li">
-                      <i className="fa fa-close"></i>
-                    </span>
-                    {phone}
-                  </li>: <li >
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {phone}
-                  </li>}
-                  {name==="FREE"?
-                  <li className="text-muted">
-                    <span className="fa-li">
-                      <i className="fa fa-close"></i>
-                    </span>
-                    {subdomain}
-                  </li>:<li >
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {subdomain}
-                  </li>}
-                  {name==="PRO"?
-                  <li >
-                    <span className="fa-li">
-                      <i className="fa fa-check"></i>
-                    </span>
-                    {report}
-                  </li>:<li className="text-muted">
-                    <span className="fa-li">
-                      <i className="fa fa-close"></i>
-                    </span>
-                    {report}
-                  </li>}
-                  
-                </ul>
-                <div className="d-grid">
-                  <button className="btn btn-primary text-uppercase">
-                    {submit}
-                  </button>
-                </div>
-              </div>
-            </div>
-            </div>
-    
-    
-  );}
+    <div className="new-movie">
+      <h1 className="movie-name">{name}</h1>
+      <img className="movie-poster" src={poster} alt={name} />{" "}
+      <p style={styles} className="movie-rating">Rating: ⭐{rating}/10</p>
+      <p className="movie-year">Year: {year}</p>
+      <ToggleButton
+  value="showText"
+  onClick={()=>setShowText(!showText)}>Toggle Description
+</ToggleButton>
+{showText && <p  className="movie-summary">{summary}</p>}      
+      <Counter />
+          </div>
+  );
+}
+function Counter ()
+{
+  const[like,setLike]=useState(0);
+  const[dislike,setDislike]=useState(0);
+  return (
+    <div className="counter">
+      <button onClick={()=>setLike(like+1)}> Like 👍 {like}</button>
+      <button onClick={()=>setDislike(dislike+1)}> disLike 👎 {dislike}</button>
+      </div>
+  ) ;
+}
