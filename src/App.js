@@ -1,4 +1,5 @@
 
+
 import "./index.css";
 import React, { Component } from "react";
 
@@ -29,9 +30,13 @@ class App extends Component {
     return (
       <div className="App">
             <div className="col-lg-12 col-md-6 col-sm-2" >
+
             <h1>LOGIN PAGE</h1>
+            <div className="loginPage">
+            <div className="image col-lg-6  col-sm-1">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgjM3_nvS_uvUPuovtzQJD_8nSFaZFWPmu7Q&usqp=CAU" alt=""></img>
-                
+            </div>
+            <div className="inputform col-lg-6  col-sm-1">
             <form className="form" >
           <div className="input-group">
             <label htmlFor="email">Email</label>
@@ -43,13 +48,15 @@ class App extends Component {
           </div>
           <button className="primary" onClick={this.handleSubmit}>LOGIN</button>
           <button className="secondary" onClick={this.handleClick}>
-              SIGN UP
+          sign up
         </button>
         </form>
             </div>
-            </div>   
+            </div>
+            
         
-        
+        </div>
+      </div>
     );
   }
 }
