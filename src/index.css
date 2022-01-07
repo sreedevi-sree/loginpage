@@ -1,7 +1,5 @@
 body{
-  background-color: black;
-   height: vh;
-  width: vw;
+  background-color: black;  
   padding: 50px;
   justify-content: center;
   text-align: center;
@@ -12,7 +10,7 @@ body{
   text-align: center;
   justify-content: center;
   background-color: yellowgreen;
-  width: vw;;
+  width: vw;
   height: vh;
   background: linear-gradient(to bottom, #3366ff 0%, #ff33cc 70%);
 padding: 30px;
@@ -28,6 +26,8 @@ h1{
 img{
   margin-top: 10px;
   box-shadow: 5px 5px gray;
+  height: 400px;
+  width: 400px;
 }
 .input-group
 {
